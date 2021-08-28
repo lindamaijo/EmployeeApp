@@ -1,0 +1,46 @@
+<form (ngSubmit)="insertData()">
+    <div  class="form-group">
+        <label for="name" >Name</label>
+    <input type="text" placeholder="Enter Name"  name="name" class="form-control" [(ngModel)]="emp.name"/>
+
+    </div>
+    <div class="form-group">
+        <label  for="email">Email</label>
+    <input type="email" placeholder="Enter Email" name="email" class="form-control" [(ngModel)]="emp.email"/>
+
+    </div>
+    <div class="form-group">
+        <label  for="salary">Salary</label>
+    <input type="text" placeholder="Enter Salary" name="salary" class="form-control" [(ngModel)]="emp.salary"/>
+
+    </div>
+    <div>
+        <button class="btn btn-dark mt-5 mb-3">submit</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th>Actions</th>
+        </tr>
+       
+    </thead>
+    <tbody>
+        <tr *ngFor='let emp of employee'>
+            <th scope="row">{{emp.id}}</th> 
+            <td>{{emp.name}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.salary}}</td>
+            <button class=" btn btn-danger btn-sm "(click)="deleteData(emp.id)">Delete</button>
+            <button class=" btn btn-warning btn-sm mg-2 " routerLink="edit/{{emp.id}}">Edit</button>
+        </tr>
+            
+
+        
+    </tbody>
+</table>
